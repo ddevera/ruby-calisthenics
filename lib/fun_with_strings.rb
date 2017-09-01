@@ -19,15 +19,16 @@ module FunWithStrings
   def anagram_groups
     result = Array.new
     
-    self.each_line { |word|
-      temp = []
-      self.each_line { |next_word|
-        if (word.downcase.split(//) == next_word.downcase.split(//))
+    self.split.each { |word|
+      temp = Array.new
+      self.split.each { |next_word|
+        if (word.downcase.split(//).sort == next_word.downcase.split(//).sort)
           temp.push(next_word)
         end
       }
+      result.push(temp)
     }
-    return result
+    return result.uniq
   end
 end
 
