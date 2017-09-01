@@ -17,7 +17,17 @@ module FunWithStrings
     return h
   end
   def anagram_groups
-    # your code here
+    result = Array.new
+    
+    self.each_line { |word|
+      temp = []
+      self.each_line { |next_word|
+        if (word.downcase.split(//) == next_word.downcase.split(//))
+          temp.push(next_word)
+        end
+      }
+    }
+    return result
   end
 end
 
